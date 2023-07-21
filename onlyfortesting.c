@@ -1,11 +1,15 @@
 #include <stdio.h>
 
 int main() {
-    char name[100]; // Declare an array to store the name (maximum 99 characters + 1 for null terminator)
+    int num, i;
 
-    printf("Enter your name: ");
-    scanf("%99s", name);
+    printf("Enter an integer: ");
+    scanf("%d", &num);
 
-    printf("Hello, %s!\n", name);
+    printf("Multiplication Table for %d:\n", num);
+    for (i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", num, i, num * i);
+    }
+
     return 0;
 }
