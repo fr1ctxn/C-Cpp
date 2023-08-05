@@ -1,15 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-    int num, i;
+    int numberToGuess, playerGuess;
+    int attempts = 0;
+    char playAgain;
 
-    printf("Enter an integer: ");
-    scanf("%d", &num);
+    srand(time(NULL)); // Seed the random number generator with the current time
+    do {
+        // Generate a random number between 1 and 100
+        numberToGuess = rand() % 100 + 1;
 
-    printf("Multiplication Table for %d:\n", num);
-    for (i = 1; i <= 10; i++) {
-        printf("%d x %d = %d\n", num, i, num * i);
-    }
+        printf("Welcome to the Guess the Number game!\n");
+        printf("I'm thinking of a number between 1 and 100.\n");
+
+        do {
+            printf("Enter your guess: ");
+            scanf("%d", &playerGuess);
+            attempts++;
+
+            if (playerGuess < numberToGuess) {
+                printf("Too low! Try again.\n");
+            } else if (playerGuess > numberToGuess) {
+                printf("Too high! Try again.\n");
+            } else {
+                printf("Congratulations! You've guessed the number %d in %d attempts!\n", numberToGuess, attempts);
+            }
+        } while (playerGuess != numberToGuess);
+
+        printf("Do you want to play again? (y/n): ");
+        scanf(" %c", &playAgain);
+
+        attempts = 0; // Reset attempts for the new game
+
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    printf("Thank you for playing!\n");
 
     return 0;
 }
