@@ -115,7 +115,7 @@ int main(){
           printf("factorial: %d\n", factorial);
 
           return 0;
-        */
+      
       
       //QUESTION NO. 6 FIBBONACCI SERIES UPTILL 5
      
